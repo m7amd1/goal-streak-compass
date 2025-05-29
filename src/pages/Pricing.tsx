@@ -8,57 +8,58 @@ const Pricing = () => {
     {
       name: "Freemium",
       price: "Free",
-      description: "5 free email generations per day, upgrade for more",
+      description: "2–3 goals for free, upgrade for unlimited goals",
       features: [
-        "5 email generations per day",
-        "Basic templates",
-        "Email support",
-        "Limited analytics"
+        "2–3 goals tracking",
+        "Basic progress tracking",
+        "Weekly check-ins",
+        "Email support"
       ],
       buttonText: "Get Started",
       popular: false
     },
     {
       name: "Subscription",
-      price: "$9–$19/month",
-      description: "Unlimited access, premium templates",
+      price: "$3–$5/month",
+      description: "Pro features: notes, stats, reminders",
       features: [
-        "Unlimited email generations",
-        "Premium templates",
-        "Priority support",
-        "Advanced analytics",
-        "Custom branding",
-        "API access"
+        "Unlimited goals",
+        "Detailed notes and comments",
+        "Advanced statistics",
+        "Smart reminders",
+        "Progress analytics",
+        "Priority support"
       ],
       buttonText: "Start Free Trial",
       popular: true
     },
     {
-      name: "Pay-per-credit",
-      price: "1 email = 1 credit",
-      description: "Pay only for what you use",
+      name: "Team Plans",
+      price: "Custom pricing",
+      description: "Coaches or teams track members' goals (small B2B angle)",
       features: [
-        "No monthly commitment",
-        "Credits never expire",
-        "All templates included",
-        "Standard support",
-        "Usage analytics"
+        "Team dashboard",
+        "Member goal tracking",
+        "Coach oversight tools",
+        "Team analytics",
+        "Bulk goal management",
+        "Dedicated support"
       ],
-      buttonText: "Buy Credits",
+      buttonText: "Contact Sales",
       popular: false
     },
     {
-      name: "Affiliate",
-      price: "Earn commissions",
-      description: "Recommend email tools and earn",
+      name: "One-time",
+      price: "$15",
+      description: "Lifetime unlock",
       features: [
-        "Recommend Mailchimp",
-        "Recommend Woodpecker",
-        "Earn up to 30% commission",
-        "Monthly payouts",
-        "Marketing materials provided"
+        "Unlimited goals forever",
+        "All pro features included",
+        "No recurring payments",
+        "Lifetime updates",
+        "Premium support"
       ],
-      buttonText: "Join Program",
+      buttonText: "Buy Lifetime",
       popular: false
     }
   ];
@@ -89,7 +90,7 @@ const Pricing = () => {
               Choose Your Plan
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Select the perfect plan for your email generation needs
+              Select the perfect plan for your goal tracking needs
             </p>
           </div>
 
