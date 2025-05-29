@@ -10,9 +10,12 @@ const Index = () => {
       <header className="px-4 lg:px-6 h-14 flex items-center">
         <div className="flex items-center space-x-2">
           <Target className="h-8 w-8 text-blue-600" />
-          <span className="text-xl font-bold text-gray-900">GoalTrackr</span>
+          <span className="text-xl font-bold text-gray-900">GoalTracker</span>
         </div>
         <nav className="ml-auto flex gap-4 sm:gap-6">
+          <Link to="/pricing">
+            <Button variant="ghost">Pricing</Button>
+          </Link>
           <Link to="/auth">
             <Button variant="ghost">Sign In</Button>
           </Link>
@@ -41,7 +44,9 @@ const Index = () => {
                 <Link to="/auth">
                   <Button size="lg">Start Tracking Goals</Button>
                 </Link>
-                <Button variant="outline" size="lg">Learn More</Button>
+                <Link to="/learn-more">
+                  <Button variant="outline" size="lg">Learn More</Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -92,6 +97,23 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Pricing Teaser */}
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
+          <div className="container px-4 md:px-6 mx-auto text-center">
+            <h2 className="text-3xl font-bold tracking-tighter mb-4">
+              Choose Your Plan
+            </h2>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              From free starter plans to premium features, we have something for everyone
+            </p>
+            <Link to="/pricing">
+              <Button size="lg" variant="outline">
+                View All Plans
+              </Button>
+            </Link>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-600">
           <div className="container px-4 md:px-6 mx-auto">
@@ -116,8 +138,11 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-white">
-        <p className="text-xs text-gray-500">© 2024 GoalTrackr. All rights reserved.</p>
+        <p className="text-xs text-gray-500">© 2024 GoalTracker. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+          <Link to="/pricing" className="text-xs hover:underline underline-offset-4">
+            Pricing
+          </Link>
           <a className="text-xs hover:underline underline-offset-4" href="#">
             Terms of Service
           </a>

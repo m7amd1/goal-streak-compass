@@ -12,7 +12,7 @@ export function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
             <Target className="h-8 w-8 text-blue-600" />
-            <h1 className="text-xl font-bold text-gray-900">GoalTrackr</h1>
+            <h1 className="text-xl font-bold text-gray-900">GoalTracker</h1>
           </div>
           
           {user && (

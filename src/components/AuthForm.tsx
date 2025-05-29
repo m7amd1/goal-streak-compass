@@ -34,6 +34,9 @@ export function AuthForm({ mode, onToggleMode }: AuthFormProps) {
           variant: "destructive",
         });
       } else if (mode === 'signup') {
+        // Clear form after successful signup
+        setEmail('');
+        setPassword('');
         toast({
           title: "Success",
           description: "Account created successfully! Please check your email for verification.",
@@ -53,7 +56,7 @@ export function AuthForm({ mode, onToggleMode }: AuthFormProps) {
   return (
     <div className="w-full max-w-md mx-auto">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">GoalTrackr</h1>
+        <h1 className="text-3xl font-bold text-gray-900">GoalTracker</h1>
         <p className="text-gray-600 mt-2">Track your goals, celebrate your progress</p>
       </div>
 

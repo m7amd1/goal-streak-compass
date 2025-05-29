@@ -10,6 +10,8 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import Pricing from "./pages/Pricing";
+import LearnMore from "./pages/LearnMore";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +56,8 @@ function AppContent() {
           path="/auth" 
           element={user ? <Navigate to="/dashboard" replace /> : <Auth />} 
         />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/learn-more" element={<LearnMore />} />
         <Route 
           path="/dashboard" 
           element={
