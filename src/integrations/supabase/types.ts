@@ -9,7 +9,83 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      checkins: {
+        Row: {
+          check_date: string
+          created_at: string
+          goal_id: string
+          id: string
+          made_progress: boolean
+          mood: Database["public"]["Enums"]["checkin_mood"]
+          note: string | null
+          user_id: string
+        }
+        Insert: {
+          check_date?: string
+          created_at?: string
+          goal_id: string
+          id?: string
+          made_progress: boolean
+          mood: Database["public"]["Enums"]["checkin_mood"]
+          note?: string | null
+          user_id: string
+        }
+        Update: {
+          check_date?: string
+          created_at?: string
+          goal_id?: string
+          id?: string
+          made_progress?: boolean
+          mood?: Database["public"]["Enums"]["checkin_mood"]
+          note?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "checkins_goal_id_fkey"
+            columns: ["goal_id"]
+            isOneToOne: false
+            referencedRelation: "goals"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      goals: {
+        Row: {
+          category: string | null
+          created_at: string
+          deadline: string | null
+          description: string | null
+          id: string
+          status: Database["public"]["Enums"]["goal_status"]
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          deadline?: string | null
+          description?: string | null
+          id?: string
+          status?: Database["public"]["Enums"]["goal_status"]
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          deadline?: string | null
+          description?: string | null
+          id?: string
+          status?: Database["public"]["Enums"]["goal_status"]
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -18,7 +94,8 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      checkin_mood: "happy" | "meh" | "sad"
+      goal_status: "active" | "completed" | "missed"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -133,6 +210,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      checkin_mood: ["happy", "meh", "sad"],
+      goal_status: ["active", "completed", "missed"],
+    },
   },
 } as const
