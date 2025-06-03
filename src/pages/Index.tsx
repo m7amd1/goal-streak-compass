@@ -2,25 +2,27 @@
 import { Button } from "@/components/ui/button";
 import { Target, CheckCircle, Calendar, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
       {/* Header */}
-      <header className="px-4 lg:px-6 h-14 flex items-center">
+      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b px-4 lg:px-6 h-16 flex items-center">
         <div className="flex items-center space-x-2">
-          <Target className="h-8 w-8 text-blue-600" />
-          <span className="text-xl font-bold text-gray-900">GoalTracker</span>
+          <Target className="h-8 w-8 text-primary" />
+          <span className="text-xl font-bold text-foreground">GoalTracker</span>
         </div>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
+        <nav className="ml-auto flex gap-2 sm:gap-4 items-center">
+          <ThemeToggle />
           <Link to="/pricing">
-            <Button variant="ghost">Pricing</Button>
+            <Button variant="ghost" size="sm" className="hidden sm:inline-flex">Pricing</Button>
           </Link>
           <Link to="/auth">
-            <Button variant="ghost">Sign In</Button>
+            <Button variant="ghost" size="sm">Sign In</Button>
           </Link>
           <Link to="/auth">
-            <Button>Get Started</Button>
+            <Button size="sm">Get Started</Button>
           </Link>
         </nav>
       </header>
@@ -34,13 +36,13 @@ const Index = () => {
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                   Track Your Goals,
                   <br />
-                  <span className="text-blue-600">Celebrate Your Progress</span>
+                  <span className="text-primary">Celebrate Your Progress</span>
                 </h1>
-                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
+                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
                   A simple, focused goal tracker with weekly check-ins to help you stay motivated and achieve your dreams.
                 </p>
               </div>
-              <div className="space-x-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/auth">
                   <Button size="lg">Start Tracking Goals</Button>
                 </Link>
@@ -53,14 +55,14 @@ const Index = () => {
         </section>
 
         {/* Features Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-card">
           <div className="container px-4 md:px-6 mx-auto">
-            <div className="grid gap-10 px-10 md:gap-16 lg:grid-cols-2">
+            <div className="grid gap-10 px-4 md:gap-16 lg:grid-cols-2">
               <div className="space-y-4">
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
                   Simple Goal Management
                 </h2>
-                <p className="max-w-[600px] text-gray-500 md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
+                <p className="max-w-[600px] text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
                   Set clear goals with descriptions, categories, and deadlines. Track your progress with visual indicators and stay motivated with weekly check-ins.
                 </p>
               </div>
@@ -70,7 +72,7 @@ const Index = () => {
                     <CheckCircle className="h-5 w-5 text-green-500" />
                     <h3 className="font-bold">Easy Goal Creation</h3>
                   </div>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-muted-foreground">
                     Add goals with title, description, category, and deadline in seconds.
                   </p>
                 </div>
@@ -79,7 +81,7 @@ const Index = () => {
                     <Calendar className="h-5 w-5 text-blue-500" />
                     <h3 className="font-bold">Weekly Check-ins</h3>
                   </div>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-muted-foreground">
                     Rate your progress and mood each week with optional reflection notes.
                   </p>
                 </div>
@@ -88,7 +90,7 @@ const Index = () => {
                     <TrendingUp className="h-5 w-5 text-purple-500" />
                     <h3 className="font-bold">Progress Tracking</h3>
                   </div>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-muted-foreground">
                     Visual progress bars and streak counters keep you motivated.
                   </p>
                 </div>
@@ -98,12 +100,12 @@ const Index = () => {
         </section>
 
         {/* Pricing Teaser */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50">
           <div className="container px-4 md:px-6 mx-auto text-center">
             <h2 className="text-3xl font-bold tracking-tighter mb-4">
               Choose Your Plan
             </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               From free starter plans to premium features, we have something for everyone
             </p>
             <Link to="/pricing">
@@ -115,14 +117,14 @@ const Index = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-600">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-primary">
           <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter text-white md:text-4xl/tight">
+                <h2 className="text-3xl font-bold tracking-tighter text-primary-foreground md:text-4xl/tight">
                   Ready to Achieve Your Goals?
                 </h2>
-                <p className="mx-auto max-w-[600px] text-blue-100 md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
+                <p className="mx-auto max-w-[600px] text-primary-foreground/80 md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
                   Join thousands of users who are already tracking their progress and achieving their dreams.
                 </p>
               </div>
@@ -137,8 +139,8 @@ const Index = () => {
       </main>
 
       {/* Footer */}
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-white">
-        <p className="text-xs text-gray-500">© 2025 GoalTracker. All rights reserved.</p>
+      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-card">
+        <p className="text-xs text-muted-foreground">© 2025 GoalTracker. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <Link to="/pricing" className="text-xs hover:underline underline-offset-4">
             Pricing
