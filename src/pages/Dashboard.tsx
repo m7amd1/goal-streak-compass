@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { GoalCard } from '@/components/GoalCard';
+import { GoalForm } from '@/components/GoalForm';
 import { useGoals } from '@/hooks/useGoals';
 import { Plus } from 'lucide-react';
 import { Goal } from '@/types/database';
@@ -35,10 +36,7 @@ const Dashboard = () => {
             <h2 className="text-2xl font-bold text-foreground">Your Goals</h2>
             <p className="text-muted-foreground">Track your progress and stay motivated</p>
           </div>
-          <Button className="flex items-center space-x-2">
-            <Plus className="h-4 w-4" />
-            <span>Add Goal</span>
-          </Button>
+          <GoalForm />
         </div>
 
         {goals.length === 0 ? (
@@ -48,7 +46,11 @@ const Dashboard = () => {
             </div>
             <h3 className="text-lg font-medium text-foreground mb-2">No goals yet</h3>
             <p className="text-muted-foreground mb-4">Start your journey by creating your first goal</p>
-            <Button>Create Your First Goal</Button>
+            <GoalForm 
+              trigger={
+                <Button size="lg">Create Your First Goal</Button>
+              }
+            />
           </div>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
