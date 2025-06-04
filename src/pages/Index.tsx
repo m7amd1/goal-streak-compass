@@ -145,12 +145,12 @@ const Index = () => {
           <Link to="/pricing" className="text-xs hover:underline underline-offset-4 text-muted-foreground hover:text-foreground">
             Pricing
           </Link>
-          <a className="text-xs hover:underline underline-offset-4 text-muted-foreground hover:text-foreground" href="#">
+          <Link to="/terms" className="text-xs hover:underline underline-offset-4 text-muted-foreground hover:text-foreground">
             Terms of Service
-          </a>
-          <a className="text-xs hover:underline underline-offset-4 text-muted-foreground hover:text-foreground" href="#">
+          </Link>
+          <Link to="/privacy" className="text-xs hover:underline underline-offset-4 text-muted-foreground hover:text-foreground">
             Privacy
-          </a>
+          </Link>
         </nav>
       </footer>
     </div>
