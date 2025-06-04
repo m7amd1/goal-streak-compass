@@ -39,7 +39,7 @@ const LearnMore = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b px-4 lg:px-6 h-16 flex items-center">
         <Link to="/" className="flex items-center space-x-2">
@@ -69,7 +69,7 @@ const LearnMore = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-background to-secondary/20">
         <div className="container px-4 md:px-6 mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-foreground">
             Master Your Goals with
             <br />
             <span className="text-primary">GoalTracker</span>
@@ -90,7 +90,7 @@ const LearnMore = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20">
+      <section className="py-20 bg-muted/30 dark:bg-muted/10">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
@@ -103,7 +103,7 @@ const LearnMore = () => {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {features.map((feature, index) => (
-              <div key={index} className="bg-card p-6 rounded-lg shadow-sm border border-border hover:shadow-md transition-shadow">
+              <div key={index} className="bg-card/60 backdrop-blur-sm p-6 rounded-lg shadow-sm border border-border/50 hover:shadow-md transition-all duration-300">
                 <div className="mb-4">{feature.icon}</div>
                 <h3 className="text-lg font-semibold mb-2 text-card-foreground">{feature.title}</h3>
                 <p className="text-muted-foreground">{feature.description}</p>
@@ -114,7 +114,7 @@ const LearnMore = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 bg-secondary/10">
+      <section className="py-20 bg-gradient-to-r from-secondary/20 via-secondary/30 to-secondary/20 dark:from-secondary/10 dark:via-secondary/20 dark:to-secondary/10">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
@@ -160,16 +160,16 @@ const LearnMore = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary">
+      <section className="py-20 bg-gradient-to-r from-primary via-primary to-primary/90">
         <div className="container px-4 md:px-6 mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
             Ready to Achieve Your Goals?
           </h2>
-          <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
             Join thousands of successful goal achievers who are already using GoalTracker to transform their lives.
           </p>
           <Link to="/auth">
-            <Button size="lg" variant="secondary">
+            <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90">
               Start Your Journey Today
             </Button>
           </Link>
@@ -177,7 +177,7 @@ const LearnMore = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-secondary/20 border-t">
+      <footer className="py-8 bg-muted/30 dark:bg-muted/10 border-t">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">

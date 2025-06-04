@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { GoalCard } from '@/components/GoalCard';
 import { GoalForm } from '@/components/GoalForm';
 import { EditGoalDialog } from '@/components/EditGoalDialog';
+import { DeleteGoalDialog } from '@/components/DeleteGoalDialog';
+import { ProgressView } from '@/components/ProgressView';
 import { useGoals } from '@/hooks/useGoals';
 import { useCheckins } from '@/hooks/useCheckins';
 import { Plus, Target, TrendingUp, Calendar, Zap } from 'lucide-react';
@@ -13,10 +15,20 @@ const Dashboard = () => {
   const { goals, loading, deleteGoal } = useGoals();
   const { checkins } = useCheckins();
   const [editingGoal, setEditingGoal] = useState<Goal | null>(null);
+  const [deletingGoal, setDeletingGoal] = useState<Goal | null>(null);
+  const [showProgressView, setShowProgressView] = useState(false);
 
   const handleDeleteGoal = async (id: string) => {
-    if (window.confirm('Are you sure you want to delete this goal?')) {
-      await deleteGoal(id);
+    const goal = goals.find(g => g.id === id);
+    if (goal) {
+      setDeletingGoal(goal);
+    }
+  };
+
+  const confirmDeleteGoal = async () => {
+    if (deletingGoal) {
+      await deleteGoal(deletingGoal.id);
+      setDeletingGoal(null);
     }
   };
 
@@ -151,7 +163,7 @@ const Dashboard = () => {
           </>
         )}
 
-        {/* Ready to Achieve Section - Always visible */}
+        {/* Ready to Achieve Section */}
         <div className="mt-16 text-center">
           <div className="bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 dark:from-primary/10 dark:via-primary/20 dark:to-primary/10 rounded-2xl p-8 sm:p-12 border border-primary/20">
             <div className="max-w-2xl mx-auto">
@@ -170,7 +182,12 @@ const Dashboard = () => {
                     </Button>
                   }
                 />
-                <Button variant="outline" size="lg" className="border-primary/20 hover:bg-primary/5">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-primary/20 hover:bg-primary/5"
+                  onClick={() => setShowProgressView(true)}
+                >
                   <Target className="h-5 w-5 mr-2" />
                   View Progress
                 </Button>
@@ -184,6 +201,18 @@ const Dashboard = () => {
         open={!!editingGoal}
         onOpenChange={(open) => !open && setEditingGoal(null)}
         goal={editingGoal}
+      />
+
+      <DeleteGoalDialog
+        open={!!deletingGoal}
+        onOpenChange={(open) => !open && setDeletingGoal(null)}
+        goal={deletingGoal}
+        onConfirm={confirmDeleteGoal}
+      />
+
+      <ProgressView
+        open={showProgressView}
+        onOpenChange={setShowProgressView}
       />
     </div>
   );
