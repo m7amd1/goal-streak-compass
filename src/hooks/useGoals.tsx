@@ -49,10 +49,10 @@ export function useGoals() {
     return data;
   };
 
-  const updateGoal = async (id: string, updates: Partial<Goal>) => {
+  const updateGoal = async (id: string, updates: Partial<Omit<Goal, 'id' | 'user_id' | 'created_at'>>) => {
     const { error } = await supabase
       .from('goals')
-      .update(updates)
+      .update({ ...updates, updated_at: new Date().toISOString() })
       .eq('id', id);
 
     if (error) {
